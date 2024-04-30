@@ -1,0 +1,2 @@
+# 利用vllm，以OpenAI的方式，利用多卡启动一个API接口
+CUDA_VISIBLE_DEVICES=0,1,2,3 python -m vllm.entrypoints.openai.api_server --model /data/share/llm/Qwen1.5-72B-Chat/ --tensor-parallel-size 4 --port 9989 --host 0.0.0.0  --served-model-name qwen --max-model-len 2048 --gpu-memory-utilization 0.7
